@@ -1,0 +1,88 @@
+{
+    "projectType": "application",
+    "root": "apps/shopeasy",
+    "sourceRoot": "apps/shopeasy/src",
+    "prefix": "shopsite",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/shopeasy",
+                "index": "apps/shopeasy/src/index.html",
+                "main": "apps/shopeasy/src/main.ts",
+                "polyfills": "apps/shopeasy/src/polyfills.ts",
+                "tsConfig": "apps/shopeasy/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/shopeasy/src/favicon.ico", "apps/shopeasy/src/assets"],
+                "styles": ["apps/shopeasy/src/styles.scss"],
+                "scripts": []
+            },
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/shopeasy/src/environments/environment.ts",
+                            "with": "apps/shopeasy/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "browserTarget": "shopeasy:build:production"
+                },
+                "development": {
+                    "browserTarget": "shopeasy:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "shopeasy:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["apps/shopeasy/src/**/*.ts", "apps/shopeasy/src/**/*.html"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/shopeasy"],
+            "options": {
+                "jestConfig": "apps/shopeasy/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}

@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "projects": {
+        "admin": "apps/admin",
+        "admin-e2e": "apps/admin-e2e",
+        "orders": "libs/orders",
+        "products": "libs/products",
+        "shopeasy": "apps/shopeasy",
+        "shopeasy-e2e": "apps/shopeasy-e2e",
+        "ui": "libs/ui",
+        "users": "libs/users"
+    }
+}

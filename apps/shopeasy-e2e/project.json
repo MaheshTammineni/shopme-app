@@ -1,0 +1,28 @@
+{
+    "root": "apps/shopeasy-e2e",
+    "sourceRoot": "apps/shopeasy-e2e/src",
+    "projectType": "application",
+    "targets": {
+        "e2e": {
+            "executor": "@nrwl/cypress:cypress",
+            "options": {
+                "cypressConfig": "apps/shopeasy-e2e/cypress.json",
+                "devServerTarget": "shopeasy:serve:development"
+            },
+            "configurations": {
+                "production": {
+                    "devServerTarget": "shopeasy:serve:production"
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/shopeasy-e2e/**/*.{js,ts}"]
+            }
+        }
+    },
+    "tags": [],
+    "implicitDependencies": ["shopeasy"]
+}
