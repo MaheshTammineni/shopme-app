@@ -1,5 +1,4 @@
 export const environment = {
     production: true,
-    apiURL: 'http://localhost:3200/api/v1/'
-
+    apiURL: 'https://shopme-backend-database.herokuapp.com/api/v1/'
 };
